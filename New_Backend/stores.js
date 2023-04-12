@@ -10,7 +10,7 @@ storesRouter.use("/stores/:store_id/items", itemsRouter);
 storesRouter.post('/stores/new', async (req, res) => {
   console.log(req.body)
   req.body._id = uuidv4();
-  console.log(req)
+  console.log(req.body._id)
   const db = req.app.get("db");
 
   try {

@@ -32,6 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/stores/new",
+        loader: NewStore,
         element:(<NewStore/>)
       }
     ],
