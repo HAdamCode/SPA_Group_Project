@@ -4,6 +4,7 @@ import './index.css';
 import { createBrowserRouter,RouterProvider} from 'react-router-dom';
 import Wrapper from './Wrapper';
 import Stores, {fetchStores} from './Stores';
+import SingleStore, {getStore} from './SingleStore';
 
 const router = createBrowserRouter([
   {
@@ -15,11 +16,11 @@ const router = createBrowserRouter([
         loader: fetchStores,
         element:<Stores/>
       },
-      // {
-      //   path:"/stores/new",
-      //   loader:CreateStore,
-      //   element:(<CreateStore/>)
-      // }
+      {
+        path:"/stores/:store_id",
+        loader:getStore,
+        element:(<SingleStore/>)
+      }
     ],
   },
 ]);

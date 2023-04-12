@@ -1,3 +1,24 @@
 header {
-    padding: 20px;
+    padding-left: 20px;
+    padding-top: 40px;
+}
+
+.home-link {
+    padding-right: 20px;
+    text-decoration-color: rgb(255, 8, 0);
+    color: rgb(29, 53, 160);
+    font-weight: bold;
+}
+
+.all-link {
+    padding-right: 20px;
+    text-decoration-color: rgb(255, 8, 0);
+    color: rgb(29, 53, 160);
+    font-weight: bold;
+}
+
+.new-link {
+    text-decoration-color: rgb(255, 8, 0);
+    color: rgb(29, 53, 160);
+    font-weight: bold;
 }
