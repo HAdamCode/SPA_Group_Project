@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import "./SingleStore.css";
 
 export default function SingleStore() {
@@ -8,6 +8,7 @@ export default function SingleStore() {
         <div key={store._id}>
             {/* <link rel="stylesheet" href="SingleStore.css"/> */}
             <h2>Store: {store.name}</h2>
+            <Link to={`/stores/${store._id}/items`}>View All Items</Link>
         </div>
     )
 }
