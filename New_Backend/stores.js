@@ -8,9 +8,9 @@ itemsRouter.mergeParams = true;
 storesRouter.use("/stores/:store_id/items", itemsRouter);
 
 storesRouter.post('/stores/new', async (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   req.body._id = uuidv4();
-  console.log(req.body._id)
+  // console.log(req.body._id)
   const db = req.app.get("db");
 
   try {
@@ -44,7 +44,7 @@ storesRouter.get('/stores', async (req, res) => {
     })
   }
 
-  console.log(results);
+  // console.log(results);
   res.send(results);
 }
 );

@@ -20,7 +20,7 @@ export default function Items() {
 }
 
 async function getItems({params}) {
-    const response = await fetch(`http://127.0.0.1:3001/stores/${params._id}/items`)
+    const response = await fetch(`http://127.0.0.1:3001/stores/${params.store_id}/items`)
         .catch(console.error);
     return await response.json();
 }

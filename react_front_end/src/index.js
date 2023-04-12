@@ -7,6 +7,8 @@ import Stores, {fetchStores} from './Stores';
 import SingleStore, {getStore} from './SingleStore';
 import Items, {getItems} from './Items';
 import NewStore from './NewStore';
+import NewItem from './NewItem';
+
 
 
 
@@ -34,6 +36,11 @@ const router = createBrowserRouter([
         path:"/stores/new",
         loader: NewStore,
         element:(<NewStore/>)
+      },
+      {
+        path:"/stores/:store_id/items/new",
+        loader: NewItem,
+        element:(<NewItem/>)
       }
     ],
   },
