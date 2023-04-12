@@ -1,60 +1,46 @@
-import './NewStore.css';
-import { v4 as uuidv4 } from 'uuid';
-
-export default function CreateStore() {
-    //Variables here and their states
-    var id = uuidv4();
-    var name;
-    const nameChange = (event) => {
-        name = event.target.value;
-    };
-
-    return (
+// import './NewTodo.css';
+export default function NewStore({ }) {
+  var name;
+  const nameChange = (event) => {
+    name = event.target.value;
+  };
+  return (
+    <div>
+      {/* <link rel="stylesheet" href="NewTodo.css" /> */}
+      <form onSubmit={() => createStoreCall({ name })}>
         <div>
-            <link rel="stylesheet" href="NewStore.css"/>
-            <form id="newForm" onSubmit={()=> createStoreCall(id,name)}/>
+          Name: <input type="text" name="description" onChange={nameChange}></input>
         </div>
-    )
-    /**
-     * if (completed == "on") {
-        completed = true
-    }
-
-    let info = JSON.stringify({
-        "description": desc,
-        "completed": completed
-    });
-
-    var requestInfo = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: info,
-        redirect: 'follow'
-    };
-
-    fetch("http://localhost:3001/todo", requestInfo)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .then(error => console.log('error',error));
-     */
-
+        <div class="add-wrapper">
+          <button type="submit">Add</button>
+        </div>
+      </form>
+    </div>
+  );
 }
 
-export async function createStoreCall ({ id ="1234", name = "default"}) {
-    let info = JSON.stringify({
-        "_id": id,
-        "name": name
-    });
-    var requestInfo = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body:info,
-        redirect: 'follow'
-    };
 
-    // IMPLEMENT MONGODB POST    
+
+
+async function createStoreCall({ name = "sample text"}) {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    "name": name,
+  });
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+
+  fetch(`http://127.0.0.1:3001/stores/new`, requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 }
+
+export {createStoreCall}
