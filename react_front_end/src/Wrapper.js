@@ -6,7 +6,7 @@ export default function Wrapper () {
         <>
             <header>
                 <link rel="stylesheet" href="Wrapper.css"/>
-                <Link class="all-linsk" to="/">Home</Link>
+                <Link class="all-links" to="/">Home</Link>
                 <Link class="all-links" to="/stores">Stores</Link>
                 <Link class="all-links" to="/stores/new">New Store</Link>
             </header>

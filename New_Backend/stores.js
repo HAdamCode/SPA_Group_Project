@@ -1,10 +1,11 @@
 import express, { Router } from 'express';
-import { itemsRouter } from './items.js'
+//import { itemsRouter } from './items.js'
 import { v4 as uuidv4 } from 'uuid';
 
 const storesRouter = express.Router();
-itemsRouter.mergeParams = true;
-storesRouter.use("/:store_id/items", itemsRouter);
+
+//itemsRouter.mergeParams = true;
+//storesRouter.use("/:store_id/items", itemsRouter);
 
 storesRouter.post('/stores/new', async (req, res) => {
     const requestBody = req.body;
@@ -78,4 +79,5 @@ storesRouter.get('/stores/:store_id', async (req, res) => {
   }
 });
 
-export { storesRouter };
+
+export default storesRouter;

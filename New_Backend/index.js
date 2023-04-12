@@ -1,34 +1,30 @@
-import { Router } from 'express';
+import express, {json} from 'express';
+import cors from 'cors';
+import storesRouter from './stores.js';
+import { connectMongodb } from './util.js';
 
-const itemsRouter = Router();
+const port = 3001;
+const app = express();
 
-itemsRouter.get('/', async (req, res) => {
-  // TODO: Fetch the MongoDB connection pool from Application storage
-  let collection = await Db.collection("Items");
-  let results = await collection.find({}).toArray();
-  console.log(results);
-  res.send(results);
-  // TODO: Retrieve all `class` documents from MongoDB using the `find` method
-  // **NOTE**: You'll need to call `toArray` on the result to format it properly
-});
+app.use(cors());
+app.use(express.json());
 
-itemsRouter.get('/:classId', async (req, res) => {
-  // TODO: Fetch the MongoDB connection pool from Application storage
 
-  // TODO: Retrieve the specified `class` document from MongoDB using the `find` method and a query
-  // **TIP:** Filters are objects that match a key to a value, i.e. `{ name: 'csci446' }`
-});
 
-itemsRouter.post('/', async (req, res) => {
-  // TODO: Fetch the MongoDB connection pool from Application storage
+const db = await connectMongodb();
+app.set("db",db);
 
-  // TODO: Create a new document using the `createOne` method in MongoDB
-});
+// app.get("/", (req, res) => {
+//     console.log(req,res);
+//     res.json({
+//         code:200,
+//         message: "Hello, Express"
+//     });
+// });
 
-itemsRouter.delete('/:classId', async (req, res) => {
-  // TODO: Fetch the MongoDB connection pool from Application storage
+app.use('/', storesRouter)
 
-  // TODO: Delete the specified document using the `deleteOne` method in MongoDB
-});
+app.listen(port, () => {
+    console.log(`Port: ${port}`)
+})
 
-export { itemsRouter };
