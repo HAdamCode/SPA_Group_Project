@@ -8,8 +8,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-const db = await connectMongodb();
-app.set("db",db);
+//const db = await connectMongodb();
+//app.set("db",db);
 
 app.get("/", (req, res) => {
     res.json({

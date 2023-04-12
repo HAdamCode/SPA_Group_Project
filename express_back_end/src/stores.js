@@ -13,4 +13,4 @@ storesRouter.get('/stores', async(req, res) => {
     res.send(results)
 })
 
-export{storesRouter}
+export default {storesRouter}

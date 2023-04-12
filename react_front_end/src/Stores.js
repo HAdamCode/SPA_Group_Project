@@ -17,10 +17,10 @@ export default function Stores() {
 }
 
 //CONNECT TO MONGO
-async function fetchStore() {
+async function fetchStores() {
     const response = await fetch(`REPLACE WITH MONGO REQUEST`)
         .catch(console.error);
     return await response.json();
 }
 
-export { fetchStore }
+export { fetchStores }
