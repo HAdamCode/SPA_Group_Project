@@ -19,6 +19,9 @@ export default function NewItem({ params }) {
       <div>
         <link rel="stylesheet" href="NewTodo.css" />
         <form onSubmit={() => createItemCall({ name, quantity, price})}>
+          <br/>
+          <p>maybe insert store name here?</p>
+          <br/>
           <div>
             Name: <input type="text" name="name" onChange={nameChange}></input>
           </div>
@@ -27,7 +30,7 @@ export default function NewItem({ params }) {
           </div>
           <div>
             Price: <input type="text" name="priceChange" onChange={priceChange}></input>
-          </div>
+          </div> <br/>
           <div class="add-wrapper">
             <button type="submit">Add</button>
           </div>
@@ -56,7 +59,7 @@ export default function NewItem({ params }) {
       redirect: 'follow'
     };
   
-    fetch(`http://127.0.0.1:3001/stores/${params.store_id}/items/new`, requestOptions)
+    fetch(`http://localhost:3001/stores/${params.store_id}/items/new`, requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));

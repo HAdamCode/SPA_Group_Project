@@ -6,11 +6,14 @@ export default function NewStore({ }) {
   };
   return (
     <div>
-      {/* <link rel="stylesheet" href="NewTodo.css" /> */}
+      <br/>
+      <h3>Add New Store</h3>
+      <br/>
       <form onSubmit={() => createStoreCall({ name })}>
         <div>
           Name: <input type="text" name="description" onChange={nameChange}></input>
         </div>
+        <br/>
         <div class="add-wrapper">
           <button type="submit">Add</button>
         </div>
@@ -37,7 +40,7 @@ async function createStoreCall({ name = "sample text"}) {
     redirect: 'follow'
   };
 
-  fetch(`http://127.0.0.1:3001/stores/new`, requestOptions)
+  fetch(`http://localhost:3001/stores/new`, requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));

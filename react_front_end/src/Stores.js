@@ -8,8 +8,8 @@ export default function Stores() {
         <>
             <link rel="stylesheet" href="Stores.css"/>
             {stores.map((store) => (
-                <div key={store._id} class="div">
-                    <Link to={`${store._id}`}> <h4> STORE: {store.name} </h4> </Link>
+                <div key={store._id} class="stores">
+                    <Link class="links" to={`${store._id}`}> <h4> STORE: {store.name} </h4> </Link>
                 </div>
             ))}
         </>
@@ -17,7 +17,7 @@ export default function Stores() {
 }
 
 async function fetchStores() {
-    const response = await fetch(`http://127.0.0.1:3001/stores`)
+    const response = await fetch(`http://localhost:3001/stores`)
         .catch(console.error);
     return await response.json();
 }

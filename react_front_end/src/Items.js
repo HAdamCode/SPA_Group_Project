@@ -1,9 +1,15 @@
 import {Link, useLoaderData} from 'react-router-dom';
-// import './Stores.css';
+
 
 export default function Items() {
     const items = useLoaderData();
-
+    
+    if (items.length == 0) {
+        return(<>
+            <br/>
+            <h3>This store has no items</h3>
+        </>)
+    }
     return (
         <>
             {/* <link rel="stylesheet" href="Stores.css"/> */}
@@ -11,8 +17,8 @@ export default function Items() {
                 <div key={item._id} class="div">
                     {/* <Link to={`${item._id}`}> <h4> STORE: {item.name} </h4> </Link> */}
                     <h2>Item: {item.name} </h2>
-                    Quantity: {item.quantity} <br/>
                     Price: ${item.price} <br/>
+                    Quantity Left: {item.quantity} <br/>
                 </div>
             ))}
         </>
@@ -20,7 +26,7 @@ export default function Items() {
 }
 
 async function getItems({params}) {
-    const response = await fetch(`http://127.0.0.1:3001/stores/${params.store_id}/items`)
+    const response = await fetch(`http://localhost:3001/stores/${params.store_id}/items`)
         .catch(console.error);
     return await response.json();
 }
