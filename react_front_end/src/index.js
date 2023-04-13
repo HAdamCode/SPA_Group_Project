@@ -7,7 +7,7 @@ import Stores, {fetchStores} from './Stores';
 import SingleStore, {getStore} from './SingleStore';
 import Items, {getItems} from './Items';
 import NewStore from './NewStore';
-import NewItem from './NewItem';
+import NewItem, {createItemCall} from './NewItem';
 
 
 
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/stores/:store_id/items/new",
-        loader: NewItem,
+        loader: null,
         element:(<NewItem/>)
       }
     ],

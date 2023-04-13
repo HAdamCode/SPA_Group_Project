@@ -1,7 +1,7 @@
 import { Routes, Route, useParams, useLoaderData } from 'react-router-dom'
 
 // import './NewTodo.css';
-export default function NewItem({ params }) {
+export default function NewItem() {
     var name;
     const nameChange = (event) => {
       name = event.target.value;
@@ -15,10 +15,11 @@ export default function NewItem({ params }) {
       price = event.target.value;
     };
     
+    const {store_id} = useParams()
     return (
       <div>
         <link rel="stylesheet" href="NewTodo.css" />
-        <form onSubmit={() => createItemCall({ name, quantity, price})}>
+        <form onSubmit={() => createItemCall(store_id, { name, quantity, price})}>
           <br/>
           <p>maybe insert store name here?</p>
           <br/>
@@ -59,7 +60,7 @@ export default function NewItem({ params }) {
       redirect: 'follow'
     };
   
-    fetch(`http://localhost:3001/stores/${params.store_id}/items/new`, requestOptions)
+    fetch(`http://localhost:3001/stores/${params}/items/new`, requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
