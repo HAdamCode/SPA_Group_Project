@@ -8,7 +8,6 @@ export default function SingleStore() {
         <div key={store._id}>
             {/* <link rel="stylesheet" href="SingleStore.css"/> */}
             <h2>{store.name}</h2>
-            <Link class="links" to={`/stores/${store._id}/items/new`}>Add New Item</Link><br/> <br/>
             <Link class="links" to={`/stores/${store._id}/items`}>View All Items</Link> 
         </div>
     )

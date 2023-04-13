@@ -21,8 +21,6 @@ export default function NewItem() {
         <link rel="stylesheet" href="NewTodo.css" />
         <form onSubmit={() => createItemCall(store_id, { name, quantity, price})}>
           <br/>
-          <p>maybe insert store name here?</p>
-          <br/>
           <div>
             Name: <input type="text" name="name" onChange={nameChange}></input>
           </div>
