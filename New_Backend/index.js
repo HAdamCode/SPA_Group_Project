@@ -1,4 +1,4 @@
-import express, {json} from 'express';
+import express from 'express';
 import cors from 'cors';
 import storesRouter from './stores.js';
 import { connectMongodb } from './util.js';
@@ -9,18 +9,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
-
 const db = await connectMongodb();
-app.set("db",db);
-
-// app.get("/", (req, res) => {
-//     console.log(req,res);
-//     res.json({
-//         code:200,
-//         message: "Hello, Express"
-//     });
-// });
+app.set("db", db);
 
 app.use('/', storesRouter)
 

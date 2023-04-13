@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { createBrowserRouter,RouterProvider} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Wrapper from './Wrapper';
-import Stores, {fetchStores} from './Stores';
-import SingleStore, {getStore} from './SingleStore';
-import Items, {getItems} from './Items';
+import Stores, { fetchStores } from './Stores';
+import SingleStore, { getStore } from './SingleStore';
+import Items, { getItems } from './Items';
 import NewStore from './NewStore';
-import NewItem, {createItemCall} from './NewItem';
+import NewItem from './NewItem';
 
 
 
@@ -15,32 +15,32 @@ import NewItem, {createItemCall} from './NewItem';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Wrapper/>,
+    element: <Wrapper />,
     children: [
       {
-        path:"/stores",
+        path: "/stores",
         loader: fetchStores,
-        element:<Stores/>
+        element: <Stores />
       },
       {
-        path:"/stores/:store_id",
-        loader:getStore,
-        element:<SingleStore/>
+        path: "/stores/:store_id",
+        loader: getStore,
+        element: <SingleStore />
       },
       {
-        path:"/stores/:store_id/items",
+        path: "/stores/:store_id/items",
         loader: getItems,
-        element:(<Items/>)
+        element: (<Items />)
       },
       {
-        path:"/stores/new",
+        path: "/stores/new",
         loader: NewStore,
-        element:(<NewStore/>)
+        element: (<NewStore />)
       },
       {
-        path:"/stores/:store_id/items/new",
+        path: "/stores/:store_id/items/new",
         loader: null,
-        element:(<NewItem/>)
+        element: (<NewItem />)
       }
     ],
   },
@@ -48,7 +48,5 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-
-    <RouterProvider router={router} fallbackElement={<div>Loading...</div>}/>
-
+  <RouterProvider router={router} fallbackElement={<div>Loading...</div>} />
 );

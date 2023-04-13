@@ -1,4 +1,3 @@
-// import './NewTodo.css';
 export default function NewStore({ }) {
   var name;
   const nameChange = (event) => {
@@ -6,14 +5,14 @@ export default function NewStore({ }) {
   };
   return (
     <div>
-      <br/>
+      <br />
       <h3>Add New Store</h3>
-      <br/>
+      <br />
       <form onSubmit={() => createStoreCall({ name })}>
         <div>
           Name: <input type="text" name="description" onChange={nameChange}></input>
         </div>
-        <br/>
+        <br />
         <div class="add-wrapper">
           <button type="submit">Add</button>
         </div>
@@ -22,10 +21,7 @@ export default function NewStore({ }) {
   );
 }
 
-
-
-
-async function createStoreCall({ name = "sample text"}) {
+async function createStoreCall({ name = "sample text" }) {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -46,4 +42,4 @@ async function createStoreCall({ name = "sample text"}) {
     .catch(error => console.log('error', error));
 }
 
-export {createStoreCall}
+export { createStoreCall }
